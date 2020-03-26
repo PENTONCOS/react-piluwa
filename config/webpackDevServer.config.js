@@ -106,7 +106,7 @@ module.exports = function(proxy, allowedHost) {
         target:'http://118.178.224.68:3333',
         changeOrigin:true,
         pathRewrite:{
-          "^/jpd":''
+          '^/jpd':''
         }
       }
     },
