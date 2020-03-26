@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 
 import { Layout } from 'antd';
 import CustomNav from '../../components/CustomNav'
+import HeaderNav from '../../components/HeaderNav'
+
 import style from './index.module.less'
 // import Hoc from '../Hoc'
 
@@ -12,13 +14,18 @@ class Admin extends Component{
       <Layout className={style.wrapper}>
         {/* 侧边栏 */}
         <Sider>s
-          <div className={style.logo} >这里是logo</div>
+          <div className={style.logo} >
+            <img width='60' height='60' src='https://img.yzcdn.cn/upload_files/2019/05/08/Fmxg4BxwfpCvVv25VLiToOmhwxHL.jpg'></img>
+            <span>皮噜娃</span>
+          </div>
           <CustomNav></CustomNav>
         </Sider>
      
       <Layout >
         {/* 头部 */}
-        <Header className={style['ant-layout-header']}>这里是头部</Header>
+        <Header className={style['ant-layout-header']}>
+          <HeaderNav></HeaderNav>
+        </Header>
         {/* 容器内容 */}
         <Content>
           {this.props.children}

@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom'
 // eslint-disable-next-line
-import { Menu, Icon } from 'antd';
+import { Menu} from 'antd';
 import menuList from './menulist'
-
+import {
+  HomeOutlined,
+  ShopOutlined,
+  TeamOutlined,
+  SmileOutlined,
+  FundViewOutlined,
+} from '@ant-design/icons';
 const { SubMenu } = Menu;
 
 function handleClick(e) {
@@ -13,14 +19,34 @@ function handleClick(e) {
   this.props.history.push(path)
 }
 class CustomNav extends Component {
+  // 渲染图标
+  renderIcon(icon){
+    switch (icon) {
+      case 'home':
+        return <HomeOutlined/>
+        break;
+      case 'goods':
+        return <ShopOutlined />
+        break;
+      case 'admin':
+        return <TeamOutlined />
+        break;
+      case 'visition':
+        return <FundViewOutlined />
+        break;
+      default:
+        return <SmileOutlined />
+        break;
+    }
+  }
   // 渲染侧边栏导航
   renderItem(data){
     return data.map((item,index)=>{
       if(item.children){
         return (
-          <SubMenu key={item.key} title={
+          <SubMenu  key={item.key} title={
             <span>
-              <Icon type={item.icon} />
+              {this.renderIcon(item.icon)}
               <span>{item.title}</span>
             </span>
           }>
@@ -29,9 +55,9 @@ class CustomNav extends Component {
         )
       }else {
         return(
-          <Menu.Item key={item.key} path={item.path}>
+          <Menu.Item  key={item.key} path={item.path}>
             <span>
-              <Icon type={item.icon} />
+              {this.renderIcon(item.icon)}
               <span>{item.title}</span>
             </span>
           </Menu.Item>
@@ -41,9 +67,15 @@ class CustomNav extends Component {
   }
   render(){
     return(
-      <Menu onClick={handleClick.bind(this)} style={{ width: 200 }} mode="vertical" theme='dark'>
-        {this.renderItem(menuList)}
-      </Menu>
+        <Menu
+          onClick={handleClick.bind(this)}
+          style={{ width: 200 }}
+          mode="inline"
+          theme="dark"
+        >
+          {this.renderItem(menuList)}
+        </Menu>
+     
     )
   }
 }
