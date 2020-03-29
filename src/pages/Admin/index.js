@@ -13,9 +13,9 @@ class Admin extends Component{
     return (
       <Layout className={style.wrapper}>
         {/* 侧边栏 */}
-        <Sider>s
+        <Sider>
           <div className={style.logo} >
-            <img width='60' height='60' src='https://img.yzcdn.cn/upload_files/2019/05/08/Fmxg4BxwfpCvVv25VLiToOmhwxHL.jpg'></img>
+            <img width='60' height='60' alt='这是我的头像！' src='https://img.yzcdn.cn/upload_files/2019/05/08/Fmxg4BxwfpCvVv25VLiToOmhwxHL.jpg'/>
             <span>皮噜娃</span>
           </div>
           <CustomNav></CustomNav>

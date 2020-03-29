@@ -1,5 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import actionCreator from '../../store/actionCreator'
+
 // eslint-disable-next-line
 import { Menu} from 'antd';
 import menuList from './menulist'
@@ -14,9 +18,9 @@ const { SubMenu } = Menu;
 
 function handleClick(e) {
   // 点击获取跳转路径通过编程式导航实现跳转
-  console.log(e.item)
   let path = e.item.props.path
   this.props.history.push(path)
+  console.log(this.props)
 }
 class CustomNav extends Component {
   // 渲染图标
@@ -24,19 +28,14 @@ class CustomNav extends Component {
     switch (icon) {
       case 'home':
         return <HomeOutlined/>
-        break;
       case 'goods':
         return <ShopOutlined />
-        break;
       case 'admin':
         return <TeamOutlined />
-        break;
       case 'visition':
         return <FundViewOutlined />
-        break;
       default:
         return <SmileOutlined />
-        break;
     }
   }
   // 渲染侧边栏导航
@@ -65,18 +64,23 @@ class CustomNav extends Component {
       }
     })
   }
+
   render(){
+    // let {collapsed} = this.props
     return(
-        <Menu
-          onClick={handleClick.bind(this)}
-          style={{ width: 200 }}
-          mode="inline"
-          theme="dark"
-        >
-          {this.renderItem(menuList)}
-        </Menu>
-     
+      <Fragment>
+          <Menu
+            onClick={handleClick.bind(this)}
+            style={{ width: 200 }}
+            mode="inline"
+            theme="dark"
+          >
+            {this.renderItem(menuList)}
+          </Menu>
+       </Fragment>
     )
   }
 }
-export default withRouter(CustomNav)
+export default connect(state=>state,(dispatch)=>{
+  return bindActionCreators(actionCreator,dispatch)
+})(withRouter(CustomNav))
