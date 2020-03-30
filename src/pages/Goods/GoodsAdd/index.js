@@ -11,9 +11,9 @@ import {Card,
   message,
 } from 'antd';
 import { UploadOutlined} from '@ant-design/icons';  
-import { getAllKind} from '../../../api/goodsKind';
-import {uploadImg} from '../../../api/uploadPic';
-import { addGoods} from '../../../api/goods';
+import { getAllKind} from '@api/goodsKind';
+import {uploadImg} from '@api/uploadPic';
+import { addGoods} from '@api/goods';
 import style from './index.module.less'
 
 const { Option } = Select;

@@ -1,4 +1,4 @@
-import axios from '../pages/utils/axios'
+import axios from '@pages/utils/axios'
 
 // 显示所有的物品(分页查询)
 let getAllGoods = (page,pageSize)=>{
@@ -25,11 +25,23 @@ let getGoodsById = (_id)=>{
   let url = 'jpd/admin/goods/getInfoById'
   return axios.post(url,{_id})
 }
+// 根据id更新物品信息
+let updataGoodsInfoById = (_id,obj)=>{
+  let url = 'jpd/admin/goods/update'
+  return axios.post(url,obj)
+}
+// 模糊查询
+let getGoodsByKw = (page,pageSize,keyword)=>{
+  let url = 'jpd/admin/goods/getInfosByKw'
+  return axios.post(url,{page,pageSize,keyword})
+}
 
 export {
   getAllGoods,
   delGoods,
   addGoods,
   updataPutaway,
-  getGoodsById
+  getGoodsById,
+  updataGoodsInfoById,
+  getGoodsByKw
 }

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import {Pagination,Spin,Card,message,Table,Tag,Button,Popconfirm,Rate} from 'antd'
-import {getAllGoods,delGoods,updataPutaway} from '../../../api/goods'
+import {Pagination,Spin,Card,message,Table,Tag,Button,Popconfirm,Rate,Input} from 'antd'
+import {getAllGoods,delGoods,updataPutaway,getGoodsByKw} from '@api/goods'
 import style from './index.module.less'
 
 // 评分的解释
 const descWord = ['太糟了！', '不太好', '一般', '很好', '好炸了！'];
+const { Search } = Input;
 
 class GoodsList extends Component{
   state={
@@ -13,6 +14,7 @@ class GoodsList extends Component{
     pageSize:4,//每页显示的条数
     list:[], //列表数据
     sumCount:0, //总数量
+    keyword:null,
     columns:[
       {title: '_id',dataIndex: '_id',key: '_id',width:120,fixed:'left'},
       {title: '名称',dataIndex: 'name',key: 'name',width:120},
@@ -25,7 +27,7 @@ class GoodsList extends Component{
         let result = 'http://118.178.224.68:3333'+path
         return(<img width ='150' height='100'src={result} alt='这是商品的缩略图'/>)
       }},
-      {title: '描述',dataIndex: 'desc',key: 'desc',width:200,render(desc){
+      {title: '描述',dataIndex: 'desc',key: 'desc',width:250,render(desc){
         let numDesc = Number(desc)
         return (<span>
           <Rate tooltips={descWord} value={numDesc} disabled/>
@@ -86,12 +88,20 @@ class GoodsList extends Component{
   getGoodsData = ()=>{
     // 加载前的菊花
     this.setState({spinning:true})
-    let {page,pageSize} = this.state
-    getAllGoods(page,pageSize)
-    .then((data)=>{
-      if(data.err!==0){return message.error(data.msg)}
-      this.setState({list:data.list,spinning:false,sumCount:data.sumCount})
-    })
+    let {page,pageSize,keyword} = this.state
+    // 根据有无模糊词
+    if(!keyword){
+      getAllGoods(page,pageSize)
+      .then((data)=>{
+        if(data.err!==0){return message.error(data.msg)}
+        this.setState({list:data.list,spinning:false,sumCount:data.sumCount})
+      })
+    }else {
+      getGoodsByKw(page, pageSize, keyword)
+      .then((data)=>{
+        this.setState({list:data.list,spinning:false,sumCount:data.sumCount})
+      })
+    }
   }
   render(){
     let {list,columns,spinning,sumCount,pageSize,page} = this.state
@@ -100,14 +110,27 @@ class GoodsList extends Component{
         <Card className={style.card} title='商品列表'>
         <Button type='primary' onClick={()=>{
              this.props.history.push('/admin/goodsInfoAdd')
-           }}>商品添加</Button>
-          <Spin spinning={spinning}>   
+           }}>商品添加
+        </Button>
+        <Search
+          placeholder="输入物品名称/类别查找"
+          enterButton="搜索"
+          style={{width:300,float:'right'}}
+          onSearch={(value)=>{
+           this.setState({keyword:value},()=>{
+            this.getGoodsData()
+           })
+          
+          }}
+        />
+          <Spin spinning={spinning} >   
             <Table 
             columns={columns} 
             dataSource={list} 
             scroll={{ x: 540 }} 
             rowKey='_id'
             pagination={false}
+            style={{marginTop:20}}
             />
             {/* 分页器 */}
             <Pagination className={style.pagination} current={page} total={sumCount} showQuickJumper pageSize={pageSize}

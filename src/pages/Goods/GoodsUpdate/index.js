@@ -13,7 +13,7 @@ import {Card,
 import { UploadOutlined} from '@ant-design/icons';  
 import { getAllKind} from '../../../api/goodsKind';
 import {uploadImg} from '../../../api/uploadPic';
-import { addGoods,getGoodsById} from '../../../api/goods';
+import { getGoodsById,updataGoodsInfoById} from '../../../api/goods';
 import style from './index.module.less'
 
 const { Option } = Select;
@@ -37,7 +37,6 @@ const normFile = e => {
   return e && e.fileList;
 };
 
-
 // 评分的解释
 const descWord = ['太糟了！', '不太好', '一般', '很好', '好炸了！'];
 
@@ -57,11 +56,11 @@ class GoodsUpdate extends Component{
   }
   // 确认提交
   submit= async()=>{
+    let {id} =  this.props.match.params
     if(!this.state.path){
       return message.info('请先上传图片')
     }
-    let {err,msg} = await addGoods(this.state)
-    console.log(this,this.state)
+    let {err,msg} = await updataGoodsInfoById(id,this.state)
     if(err){return message.error(msg)}
     this.props.history.replace('/admin/goodslist')
   }
@@ -96,7 +95,7 @@ class GoodsUpdate extends Component{
     let result = await getAllKind()
     // 通过id 获取修改信息
     let {list} = await getGoodsById(id)
-    console.log(result.list,list[0])
+    // console.log(result.list,list[0])
     this.setState({types:result.list,...list[0]})
   }
   
@@ -241,7 +240,7 @@ class GoodsUpdate extends Component{
               label="评分"
             >
               <span>
-                <Rate tooltips={descWord} value={desc} onChange={(e)=>{
+                <Rate tooltips={descWord} defaultValue={desc} value={desc} onChange={(e)=>{
                   this.setState({ desc:e })
                 }} />
                 {desc ? <span className="ant-rate-text">{descWord[desc - 1]}</span> : ''}

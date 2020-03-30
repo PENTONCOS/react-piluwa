@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 
 import { Layout } from 'antd';
-import CustomNav from '../../components/CustomNav'
-import HeaderNav from '../../components/HeaderNav'
+import CustomNav from '@components/CustomNav'
+import HeaderNav from '@components/HeaderNav'
 
 import style from './index.module.less'
 // import Hoc from '../Hoc'

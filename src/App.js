@@ -1,11 +1,11 @@
 import React ,{Component} from 'react';
 import {HashRouter,Route,Redirect} from 'react-router-dom'
-import  Admin from  './pages/Admin'
-import  Login from './pages/Login'
-import User from './pages/User'
-import GoodsList from './pages/Goods/GoodsList'
-import GoodsAdd from './pages/Goods/GoodsAdd'
-import GoodsUpdate from './pages/Goods/GoodsUpdate'
+import  Admin from  '@pages/Admin'
+import  Login from '@pages/Login'
+import User from '@pages/User'
+import GoodsList from '@pages/Goods/GoodsList'
+import GoodsAdd from '@pages/Goods/GoodsAdd'
+import GoodsUpdate from '@pages/Goods/GoodsUpdate'
 class App extends Component {
   render() { 
     return (  
