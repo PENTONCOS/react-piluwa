@@ -46,27 +46,27 @@ export default[
     title:"数据可视化",
     icon:'visition',
     path:'/admin/visualization',
-    children:[
-      {
-        key:'8-1',
-        title:"全球奶粉",
-        path:'/admin/milkpowder'
-      },
-      {
-        key:'8-2',
-        title:"尿不湿",
-        path:'/admin/diapers'
-      },
-      {
-        key:'8-3',
-        title:"营养辅食",
-        path:'/admin/supplementary'
-      },
-      {
-        key:'8-4',
-        title:"宝宝洗护",
-        path:'/admin/skincare'
-      }
-    ]
+    // children:[
+    //   {
+    //     key:'8-1',
+    //     title:"全球奶粉",
+    //     path:'/admin/milkpowder'
+    //   },
+    //   {
+    //     key:'8-2',
+    //     title:"尿不湿",
+    //     path:'/admin/diapers'
+    //   },
+    //   {
+    //     key:'8-3',
+    //     title:"营养辅食",
+    //     path:'/admin/supplementary'
+    //   },
+    //   {
+    //     key:'8-4',
+    //     title:"宝宝洗护",
+    //     path:'/admin/skincare'
+    //   }
+    // ]
   }
 ]

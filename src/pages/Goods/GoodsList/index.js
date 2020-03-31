@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import XLSX from "xlsx"
+
 import {Pagination,Spin,Card,message,Table,Tag,Button,Popconfirm,Rate,Input} from 'antd'
 import {getAllGoods,delGoods,updataPutaway,getGoodsByKw} from '@api/goods'
 import style from './index.module.less'
@@ -103,6 +105,29 @@ class GoodsList extends Component{
       })
     }
   }
+  // 打印表格
+  exportAll=async ()=>{
+    // 获取表头数据
+    let thead = this.state.columns.map((item)=>{ return item.title})
+    // 获取要导出的数据
+    let {list} = await getAllGoods(1,10000)
+    console.log(list)
+    let data = list.map((item)=>{
+      let arr = [] 
+      for (const key in item) {
+         arr.push(item[key])
+      }
+      return arr
+    })
+
+    // 将数据合并为数组 
+    let result = [thead,...data]
+    //导出
+    let  sheet = XLSX.utils.aoa_to_sheet(result) 
+    let  wb =XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(wb,sheet)
+    XLSX.writeFile(wb,'商品.xlsx')
+  }
   render(){
     let {list,columns,spinning,sumCount,pageSize,page} = this.state
     return(
@@ -112,6 +137,7 @@ class GoodsList extends Component{
               this.props.history.push('/admin/goodsInfoAdd')
             }}>商品添加
           </Button>
+          <Button type='primary' onClick={this.exportAll} style={{marginLeft:10}}>导出商品列表</Button>
           <Search
             placeholder="输入物品名称/类别查找"
             enterButton="搜索"
