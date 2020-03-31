@@ -108,21 +108,21 @@ class GoodsList extends Component{
     return(
       <div className={style.box}>
         <Card className={style.card} title='商品列表'>
-        <Button type='primary' onClick={()=>{
-             this.props.history.push('/admin/goodsInfoAdd')
-           }}>商品添加
-        </Button>
-        <Search
-          placeholder="输入物品名称/类别查找"
-          enterButton="搜索"
-          style={{width:300,float:'right'}}
-          onSearch={(value)=>{
-           this.setState({keyword:value},()=>{
-            this.getGoodsData()
-           })
-          
-          }}
-        />
+          <Button type='primary' onClick={()=>{
+              this.props.history.push('/admin/goodsInfoAdd')
+            }}>商品添加
+          </Button>
+          <Search
+            placeholder="输入物品名称/类别查找"
+            enterButton="搜索"
+            style={{width:300,float:'right'}}
+            onSearch={(value)=>{
+            this.setState({keyword:value},()=>{
+              this.getGoodsData()
+            })
+            
+            }}
+          />
           <Spin spinning={spinning} >   
             <Table 
             columns={columns} 
