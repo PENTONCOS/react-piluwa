@@ -16,8 +16,11 @@ let addAdmin = (user, pass)=>{
   return axios.post(url,{user,pass})
 }
 
+
 export {
   getAllAdmins,
   delAdmin,
-  addAdmin
+  addAdmin,
+
+
 }
