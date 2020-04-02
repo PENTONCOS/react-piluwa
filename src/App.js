@@ -1,20 +1,13 @@
 import React ,{Component} from 'react';
-
-import {HashRouter,Route,Redirect} from 'react-router-dom'
-import loadAble from '@utils/loadAble'
-
+import {HashRouter,Route,Redirect,Router} from 'react-router-dom'
+import  Admin from  './pages/Admin'
+import  Login from './pages/Login'
+import User from './pages/User'
 import Normaluser from './pages/User/normaluser'
 import Administrator from './pages/User/administrator'
 
-const Admin =loadAble(()=>import('@pages/Admin'))
-const Login =loadAble(()=>import('@pages/Login'))
-const User =loadAble(()=>import('@pages/User'))
-const GoodsList =loadAble(()=>import('@pages/Goods/GoodsList'))
-const GoodsAdd =loadAble(()=>import('@pages/Goods/GoodsAdd'))
-const GoodsUpdate =loadAble(()=>import('@pages/Goods/GoodsUpdate'))
-const GoodsKind =loadAble(()=>import('@pages/GoodsKind'))
-const Visualization =loadAble(()=>import('@pages/Visualization'))
-
+// import GoodsList from './pages/Goods/GoodsList'
+// import Admins from './pages/Administrator'
 class App extends Component {
   render() { 
     return (  
