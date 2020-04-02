@@ -28,7 +28,7 @@ const formItemLayout = {
 
 // 上传了图片之后
 const normFile = e => {
-  console.log('Upload event:', e);
+  // console.log('Upload event:', e);
 
   if (Array.isArray(e)) {
     return e;
@@ -38,8 +38,8 @@ const normFile = e => {
 };
 
 const onFinish = values => {
-  console.log('Received values of form: ', values);
-  console.log(this)
+  // console.log('Received values of form: ', values);
+  // console.log(this)
 };
 
 // 评分的解释
@@ -65,7 +65,7 @@ class GoodsAdd extends Component{
       return message.info('请先上传图片')
     }
     let {err,msg} = await addGoods(this.state)
-    console.log(this,this.state)
+    // console.log(this,this.state)
     if(err){return message.error(msg)}
     this.props.history.replace('/admin/goodslist')
   }

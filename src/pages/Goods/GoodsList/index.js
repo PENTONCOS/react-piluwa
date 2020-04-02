@@ -110,7 +110,7 @@ class GoodsList extends Component{
     let thead = this.state.columns.map((item)=>{ return item.title})
     // 获取要导出的数据
     let {list} = await getAllGoods(1,10000)
-    console.log(list)
+    // console.log(list)
     let data = list.map((item)=>{
       let arr = [] 
       for (const key in item) {

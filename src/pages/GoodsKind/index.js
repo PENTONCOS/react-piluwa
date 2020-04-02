@@ -41,7 +41,7 @@ class GoodsKind extends Component{
     }
     // 调用接口 删除数据库的数据
     delGoodsKind(targetKey).then((data)=>{
-      console.log(data)
+      // console.log(data)
     })
     this.setState({ panes, activeKey });
   };

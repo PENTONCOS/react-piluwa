@@ -20,7 +20,7 @@ function handleClick(e) {
   // 点击获取跳转路径通过编程式导航实现跳转
   let path = e.item.props.path
   this.props.history.push(path)
-  console.log(this.props)
+  // console.log(this.props)
 }
 class CustomNav extends Component {
   // 渲染图标
@@ -74,6 +74,7 @@ class CustomNav extends Component {
             style={{ width: 200 }}
             mode="inline"
             theme="dark"
+            defaultSelectedKeys={['1']}
           >
             {this.renderItem(menuList)}
           </Menu>
