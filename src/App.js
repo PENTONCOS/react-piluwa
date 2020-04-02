@@ -24,7 +24,7 @@ class App extends Component {
       <HashRouter>
         {/* 控制地址栏改变 */}
         {/* 路由 */}
-        <Redirect exact from='/' to='/admin/home'></Redirect>
+        <Redirect exact from='/' to='/login'></Redirect>
         <Route path='/login' component={Login}></Route>
         <Route path='/admin' render ={()=>{
           return(
