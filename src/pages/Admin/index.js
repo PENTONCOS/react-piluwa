@@ -5,7 +5,7 @@ import CustomNav from '@components/CustomNav'
 import HeaderNav from '@components/HeaderNav'
 
 import style from './index.module.less'
-// import Hoc from '../Hoc'
+import Hoc from '../Hoc'
 
 const { Header, Content, Footer, Sider } = Layout;
 class Admin extends Component{
@@ -37,6 +37,6 @@ class Admin extends Component{
     )
   }
 }
-// export default Hoc(Admin)
+export default Hoc(Admin)
 
-export default Admin;
+// export default Admin;

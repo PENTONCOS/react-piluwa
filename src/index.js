@@ -4,7 +4,6 @@ import App from './App';
 import store from './store/store'
 import {Provider} from 'react-redux'
 import * as serviceWorker from './serviceWorker';
-localStorage.setItem('isLogin',true)
 ReactDOM.render(
 <Provider store={store}>
   <App />

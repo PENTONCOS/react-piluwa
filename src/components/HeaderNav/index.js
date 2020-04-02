@@ -52,6 +52,7 @@ class HeaderNav extends Component {
           // 退出到登录页面
           // 并且需要吧登录信息删除
           this.props.history.push('/login')
+          localStorage.removeItem('user')
         }}>
           {/* eslint-disable-next-line */}
           <a target="_blank" rel="noopener noreferrer" >
@@ -68,7 +69,6 @@ class HeaderNav extends Component {
   //   console.log(this.props.collapsed)
   // }
   render() { 
-    // console.log(this.props)
     let {adminName,adminUrl} = this.props
     return ( 
       <Fragment>

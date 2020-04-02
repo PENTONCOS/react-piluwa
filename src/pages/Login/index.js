@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import api from '../../api/login.js'
+import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
 import { Form, Input, Button, Checkbox ,message,Alert} from 'antd';
+import actionCreator from '../../store/actionCreator'
+
 import { UserOutlined } from '@ant-design/icons';
 import style from './index.module.less'
 class Login extends Component {
@@ -12,10 +17,12 @@ class Login extends Component {
     console.log("登录ok");
             message.success('登录成功，3s后跳转首页',3,()=>{
               this.props.history.replace('/admin')
-              // 把用户名记下来
-              console.log(this.props)
             })
-   
+    // 把用户名记下来
+    let {CHANGE_ADMINNAME} = this.props
+    CHANGE_ADMINNAME(user)
+    // 将user保存到localstorge 
+    localStorage.setItem('user',user)
   }else{
     console.log("登录失败");
     alert('账号或密码错误，请重新输入')
@@ -47,7 +54,7 @@ class Login extends Component {
           {min:3,message:"用户名最少3位"}
         ]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="admin" />
       </Form.Item>
       {/* 密码 */}
       <Form.Item
@@ -59,7 +66,7 @@ class Login extends Component {
           },
         ]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="admin" />
       </Form.Item>
       {/* 记住我 */}
       <Form.Item>
@@ -83,4 +90,6 @@ class Login extends Component {
   }
 }
  
-export default Login;
+export default connect(state=>state,(dispatch)=>{
+  return bindActionCreators(actionCreator,dispatch)
+})(withRouter(Login));
