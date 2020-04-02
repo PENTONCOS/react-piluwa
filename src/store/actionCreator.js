@@ -9,17 +9,10 @@ export default{
     }
   },
   // 根据接口取到的值来取到用户名
-<<<<<<< HEAD
-  [CHANGE_ADMINNAME](){
-    return (dispatch)=>{
-      
-      dispatch()
-=======
   [CHANGE_ADMINNAME](username){
     return {
       type:CHANGE_ADMINNAME,
       payload:username
->>>>>>> 55a8ec20be64af419c4bacc40d7d1017c72bab65
     }
   }
 }

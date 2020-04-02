@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import api from '../../api/login.js'
-<<<<<<< HEAD
-import { Form, Input, Button, Checkbox ,message} from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-=======
 
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
@@ -12,7 +8,6 @@ import { Form, Input, Button, Checkbox ,message} from 'antd';
 import actionCreator from '../../store/actionCreator'
 
 import { UserOutlined ,UnlockOutlined } from '@ant-design/icons';
->>>>>>> 55a8ec20be64af419c4bacc40d7d1017c72bab65
 import style from './index.module.less'
 class Login extends Component {
   onFinish=async (e)=>{
@@ -80,12 +75,8 @@ class Login extends Component {
         <Form.Item name="remember" valuePropName="checked" noStyle>
           <Checkbox>Remember me</Checkbox>
         </Form.Item>
-<<<<<<< HEAD
-        <a className="login-form-forgot">
-=======
         {/*  eslint-disable-next-line */}
         <a className="login-form-forgot" href="">
->>>>>>> 55a8ec20be64af419c4bacc40d7d1017c72bab65
           Forgot password
         </a>
       </Form.Item>
@@ -95,11 +86,7 @@ class Login extends Component {
         <Button type="primary" htmlType="submit" className="login-form-button">
           登陆
         </Button>
-<<<<<<< HEAD
-        Or <a>register now!</a>
-=======
         Or <a href="./index">register now!</a>
->>>>>>> 55a8ec20be64af419c4bacc40d7d1017c72bab65
       </Form.Item>
     </Form>
     </div>
