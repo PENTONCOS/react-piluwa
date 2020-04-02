@@ -41,7 +41,7 @@ class CustomNav extends Component {
   }
   // 渲染侧边栏导航
   renderItem(data){
-    return data.map((item,index)=>{
+    return data.map((item)=>{
       if(item.children){
         return (
           <SubMenu  key={item.key} title={

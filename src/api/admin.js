@@ -11,12 +11,12 @@ let delAdmin = (_id)=>{
   return axios.post(url,{_id})
 }
 // 增加管理员
-let addAdmin = (user, pass)=>{
+let addAdmin = ({user, pass})=>{
   let url = 'jpd/admin/user/reg';
   return axios.post(url,{user,pass})
 }
 
-export {
+export default {
   getAllAdmins,
   delAdmin,
   addAdmin

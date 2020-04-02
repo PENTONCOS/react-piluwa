@@ -1,8 +1,11 @@
 import React ,{Component} from 'react';
-import {HashRouter,Route,Redirect} from 'react-router-dom'
+import {HashRouter,Route,Redirect, Router} from 'react-router-dom'
 import  Admin from  './pages/Admin'
 import  Login from './pages/Login'
 import User from './pages/User'
+import Normaluser from './pages/User/normaluser'
+import Administrator from './pages/User/administrator'
+
 // import GoodsList from './pages/Goods/GoodsList'
 // import Admins from './pages/Administrator'
 class App extends Component {
@@ -17,6 +20,9 @@ class App extends Component {
           return(
             <Admin>
                 <Route path='/admin/user' component={User}></Route>
+                <Route path='/admin/normaluser' component={Normaluser}></Route>
+                <Route path='/admin/administrator' component={Administrator}></Route>
+              
                 {/* <Route path='/admin/goodslist' component={GoodsList}></Route> */}
                 {/* <Route path='/admin/administrator' component={Admins}></Route> */}
             </Admin>
