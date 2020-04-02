@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import api from '../../api/login.js'
-<<<<<<< HEAD
+
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import { Form, Input, Button, Checkbox ,message,Alert} from 'antd';
+import { Form, Input, Button, Checkbox ,message} from 'antd';
 import actionCreator from '../../store/actionCreator'
 
-import { UserOutlined } from '@ant-design/icons';
-=======
-import { Form, Input, Button, Checkbox ,message} from 'antd';
 import { UserOutlined ,UnlockOutlined } from '@ant-design/icons';
->>>>>>> 628163bb36ba8d8675920980f342de0e3faa0f91
 import style from './index.module.less'
 class Login extends Component {
   onFinish=async (e)=>{
@@ -74,11 +70,7 @@ class Login extends Component {
           },
         ]}
       >
-<<<<<<< HEAD
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="admin" />
-=======
         <Input prefix={<UnlockOutlined />} placeholder="Password" />
->>>>>>> 628163bb36ba8d8675920980f342de0e3faa0f91
       </Form.Item>
       {/* 记住我 */}
       
