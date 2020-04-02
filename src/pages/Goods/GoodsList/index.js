@@ -18,8 +18,7 @@ class GoodsList extends Component{
     sumCount:0, //总数量
     keyword:null,
     columns:[
-      {title: '_id',dataIndex: '_id',key: '_id',width:120,fixed:'left'},
-      {title: '名称',dataIndex: 'name',key: 'name',width:120},
+      {title: '名称',dataIndex: 'name',key: 'name',width:120,fixed:'left'},
       {title: '库存',dataIndex: 'stock',key: 'stock',width:80},
       {title: '价格',dataIndex: 'price',key: 'price',width:120},
       {title: '类别',dataIndex: 'kind',key: 'kind',width:120,render(kind){

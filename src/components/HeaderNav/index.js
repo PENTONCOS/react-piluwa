@@ -88,8 +88,8 @@ class HeaderNav extends Component {
         </Button>
         <Dropdown className={style.subpull} overlay={this.state.userMenu} placement="bottomRight">
           <Button  style={{height:`100%`,border:0}}>
-            <Avatar style={{width:24,height:24}} src="http://img2.imgtn.bdimg.com/it/u=2076373339,2173673275&fm=26&gp=0.jpg" />
-            <span style={{marginLeft:7}}>Serati Ma</span>
+            <Avatar style={{width:24,height:24}} src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3218576801,3813935145&fm=11&gp=0.jpg" />
+            <span style={{marginLeft:7}}>Bae Suzy</span>
           </Button>
         </Dropdown>
         <Dropdown className={style.subpull} overlay={langMenu} placement="bottomRight">

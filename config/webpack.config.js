@@ -25,6 +25,9 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
+const CompressionPlugin = require('compression-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
@@ -254,6 +257,16 @@ module.exports = function(webpackEnv) {
             preset: ['default', { minifyFontValues: { removeQuotes: false } }],
           },
         }),
+        new UglifyJsPlugin({
+          uglifyOptions: {
+            compress: false,
+            mangle: true,
+            output: {
+              comments: false,
+            },
+          },
+          sourceMap: false,
+        })
       ],
       // Automatically split vendor and commons
       // https://twitter.com/wSokra/status/969633336732905474
@@ -513,6 +526,19 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+      new webpack.DefinePlugin({ 
+        'process.env': {
+          'NODE_ENV': JSON.stringify('production')
+        }
+      }),
+      new webpack.optimize.AggressiveMergingPlugin(),
+      new CompressionPlugin({   
+        filename: "[path].gz[query]",
+        algorithm: "gzip",
+        test: /\.js$|\.css$|\.html$/,
+        threshold: 10240,
+        minRatio: 0.8
+      }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
