@@ -12,7 +12,7 @@ export default{
   [CHANGE_ADMINNAME](){
     return (dispatch)=>{
       
-      dispatch(action)
+      dispatch()
     }
   }
 }

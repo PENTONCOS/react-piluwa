@@ -52,6 +52,7 @@ class Administrator extends Component {
 del=async (_id)=>{
 console.log('删除',_id);
 let result=await api.delAdmin(_id);
+console.log(result)
 this.freshlList()
 
 

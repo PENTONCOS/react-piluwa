@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../api/login.js'
-import { Form, Input, Button, Checkbox ,message,Alert} from 'antd';
+import { Form, Input, Button, Checkbox ,message} from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import style from './index.module.less'
 class Login extends Component {
@@ -67,7 +67,7 @@ class Login extends Component {
         <Form.Item name="remember" valuePropName="checked" noStyle>
           <Checkbox>Remember me</Checkbox>
         </Form.Item>
-        <a className="login-form-forgot" href="">
+        <a className="login-form-forgot">
           Forgot password
         </a>
       </Form.Item>
@@ -76,7 +76,7 @@ class Login extends Component {
         <Button type="primary" htmlType="submit" className="login-form-button">
           登陆
         </Button>
-        Or <a href="">register now!</a>
+        Or <a>register now!</a>
       </Form.Item>
     </Form>
     </div>
