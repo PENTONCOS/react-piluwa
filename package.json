@@ -77,7 +77,11 @@
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+      "rules":{
+        "jsx-a11y/anchor-is-valid":"off"
+      }
+    
   },
   "browserslist": {
     "production": [
@@ -154,4 +158,6 @@
     "uglify-js": "^3.8.1",
     "uglifyjs-webpack-plugin": "^2.2.0"
   }
+  
 }
+

@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import api from '../../api/login.js'
-import { Form, Input, Button, Checkbox ,message,Alert} from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Checkbox ,message} from 'antd';
+import { UserOutlined ,UnlockOutlined } from '@ant-design/icons';
 import style from './index.module.less'
 class Login extends Component {
   onFinish=async (e)=>{
-   console.log('完成',e)
+  //  console.log('完成',e)
   //  获取用户填写的数据 发起ajax请求 
   let {user,pass} = e 
   let result = await api.login({user,pass})
-  console.log(result)
-  console.log(result.code)
+  // console.log(result)
+
   if(result.err === 0 ){
-    console.log("登录ok");
+    // console.log("登录ok");
             message.success('登录成功，3s后跳转首页',3,()=>{
               this.props.history.replace('/admin')
             })
    
   }else{
-    console.log("登录失败");
+    // console.log("登录失败");
     alert('账号或密码错误，请重新输入')
    
   }
@@ -60,9 +60,10 @@ class Login extends Component {
           },
         ]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        <Input prefix={<UnlockOutlined />} placeholder="Password" />
       </Form.Item>
       {/* 记住我 */}
+      
       <Form.Item>
         <Form.Item name="remember" valuePropName="checked" noStyle>
           <Checkbox>Remember me</Checkbox>
@@ -73,10 +74,11 @@ class Login extends Component {
       </Form.Item>
       {/* 登录按钮 */}
       <Form.Item>
+        
         <Button type="primary" htmlType="submit" className="login-form-button">
           登陆
         </Button>
-        Or <a href="">register now!</a>
+        Or <a href="./index">register now!</a>
       </Form.Item>
     </Form>
     </div>

@@ -16,12 +16,7 @@ let addAdmin = ({user, pass})=>{
   return axios.post(url,{user,pass})
 }
 
-<<<<<<< HEAD
-
-export {
-=======
 export default {
->>>>>>> bbb
   getAllAdmins,
   delAdmin,
   addAdmin,
