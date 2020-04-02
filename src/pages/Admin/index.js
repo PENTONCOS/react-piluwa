@@ -31,7 +31,7 @@ class Admin extends Component{
           {this.props.children}
         </Content>
         {/* 底部 */}
-        <Footer >Ant Design ©2018 Created by Ant UED</Footer>
+        <Footer style={{textAlign:'center'}}><em>MSPA ©2020 Created by The-Avengers</em></Footer>
       </Layout>
     </Layout>
     )
