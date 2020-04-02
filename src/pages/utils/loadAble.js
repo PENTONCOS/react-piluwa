@@ -1,6 +1,6 @@
 import React from 'react'
 import { Result} from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { SyncOutlined } from '@ant-design/icons';
 import LoadAble from 'react-loadable'
 
 
@@ -9,7 +9,7 @@ function LogingComponent (){
   return(
     <Result
       style={{width:`100%`,height:`100%`,marginTop:100}}
-      icon={<SmileOutlined />}
+      icon={<SyncOutlined spin />}
       title="页面加载中，请稍后..."
     />
   )

@@ -68,6 +68,8 @@ class HeaderNav extends Component {
   //   console.log(this.props.collapsed)
   // }
   render() { 
+    console.log(this.props)
+    let {adminName,adminUrl} = this.props
     return ( 
       <Fragment>
         {/* 控制侧边导航栏的按钮 */}
@@ -88,8 +90,8 @@ class HeaderNav extends Component {
         </Button>
         <Dropdown className={style.subpull} overlay={this.state.userMenu} placement="bottomRight">
           <Button  style={{height:`100%`,border:0}}>
-            <Avatar style={{width:24,height:24}} src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3218576801,3813935145&fm=11&gp=0.jpg" />
-            <span style={{marginLeft:7}}>Bae Suzy</span>
+            <Avatar style={{width:24,height:24}} src={adminUrl} />
+            <span style={{marginLeft:7}}>{adminName}</span>
           </Button>
         </Dropdown>
         <Dropdown className={style.subpull} overlay={langMenu} placement="bottomRight">
