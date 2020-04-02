@@ -1,9 +1,8 @@
 import React ,{Component} from 'react';
 import loadAble from '@utils/loadAble'
 import {HashRouter,Route,Redirect} from 'react-router-dom'
-import Normaluser from './pages/User/normaluser'
-import Administrator from './pages/User/administrator'
-
+const Normaluser =loadAble(()=>import('./pages/User/normaluser'))
+const Administrator =loadAble(()=>import('./pages/User/administrator'))
 const Admin =loadAble(()=>import('@pages/Admin'))
 const Login =loadAble(()=>import('@pages/Login'))
 const User =loadAble(()=>import('@pages/User'))
