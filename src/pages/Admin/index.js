@@ -1,11 +1,10 @@
 import React, {Component} from 'react'
-
 import { Layout } from 'antd';
 import CustomNav from '@components/CustomNav'
 import HeaderNav from '@components/HeaderNav'
 
 import style from './index.module.less'
-// import Hoc from '../Hoc'
+import Hoc from '../Hoc'
 
 const { Header, Content, Footer, Sider } = Layout;
 class Admin extends Component{
@@ -28,7 +27,7 @@ class Admin extends Component{
         </Header>
         {/* 容器内容 */}
         <Content>
-          {this.props.children}
+          {this.props.props}
         </Content>
         {/* 底部 */}
         <Footer style={{textAlign:'center'}}><em>MSPA ©2020 Created by The-Avengers</em></Footer>
@@ -37,6 +36,5 @@ class Admin extends Component{
     )
   }
 }
-// export default Hoc(Admin)
+export default Hoc(Admin)
 
-export default Admin;

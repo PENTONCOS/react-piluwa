@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import style from './index.module.less'
 import {withRouter} from 'react-router-dom'
+import { Result, Button } from 'antd';
 class Modal extends Component {
   render() { 
     console.log(this)
     return (  
-      <div className={style.modal}>
-        <div className={style.content}>
-          <p>登录状态丢失请重新登录</p>
-          <button onClick={()=>{
+      <Result
+        style={{hieght:`100vh`}}
+        status="error"
+        title="请登陆获取权限"
+        extra={
+          <Button type="primary" key="console" onClick={()=>{
             this.props.history.replace('/login')
-          }}>滚去登录</button>
-        </div>
-      </div>
+          }}>
+            返回登录页面
+          </Button>
+      }
+      />
     )
   }
 }
