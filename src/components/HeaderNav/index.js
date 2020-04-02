@@ -69,7 +69,8 @@ class HeaderNav extends Component {
   //   console.log(this.props.collapsed)
   // }
   render() { 
-    let {adminName,adminUrl} = this.props
+    let {adminUrl} = this.props
+    let adminName = localStorage.getItem('user')
     return ( 
       <Fragment>
         {/* 控制侧边导航栏的按钮 */}
