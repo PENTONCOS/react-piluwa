@@ -78,6 +78,7 @@ class Login extends Component {
         <Form.Item name="remember" valuePropName="checked" noStyle>
           <Checkbox>Remember me</Checkbox>
         </Form.Item>
+        {/*  eslint-disable-next-line */}
         <a className="login-form-forgot" href="">
           Forgot password
         </a>

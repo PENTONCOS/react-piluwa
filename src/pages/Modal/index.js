@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import style from './index.module.less'
 import {withRouter} from 'react-router-dom'
 import { Result, Button } from 'antd';
 class Modal extends Component {

@@ -4,12 +4,13 @@ import Modal from '../Modal'
 export default (TempComponet)=>{
   
   class NewComponent extends Component{
-    constructor(){
-      super()
+    constructor(props){
+      super(props)
       this.state={
         hasAccount:false
       }
     }
+    
     componentDidMount(){
       let hasAccount = localStorage.getItem('user')
       this.setState({hasAccount})
@@ -18,7 +19,7 @@ export default (TempComponet)=>{
       let {hasAccount} = this.state 
       return(
         <Fragment>
-          {hasAccount===null?<Modal/>:<TempComponet/>}
+          {hasAccount===null?<Modal/>:<TempComponet props={this.props.children}/>}
         </Fragment>
       )
     }
