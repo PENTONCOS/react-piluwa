@@ -15,6 +15,8 @@ class Login extends Component {
     // console.log("登录ok");
             message.success('登录成功，3s后跳转首页',3,()=>{
               this.props.history.replace('/admin')
+              // 把用户名记下来
+              console.log(this.props)
             })
    
   }else{

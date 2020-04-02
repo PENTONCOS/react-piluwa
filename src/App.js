@@ -20,11 +20,13 @@ class App extends Component {
           return(
             <Admin>
                 <Route path='/admin/user' component={User}></Route>
+                <Route path='/admin/goodslist' component={GoodsList}></Route>
+                <Route path='/admin/goodsInfoAdd' component={GoodsAdd}></Route>
+                <Route path='/admin/goodsInfoUpdate/:id' component={GoodsUpdate}></Route>
+                <Route path='/admin/goodskind' component={GoodsKind}></Route>
+                <Route path='/admin/visualization' component={Visualization}></Route>
                 <Route path='/admin/normaluser' component={Normaluser}></Route>
                 <Route path='/admin/administrator' component={Administrator}></Route>
-              
-                {/* <Route path='/admin/goodslist' component={GoodsList}></Route> */}
-                {/* <Route path='/admin/administrator' component={Admins}></Route> */}
             </Admin>
           )
         }}></Route>

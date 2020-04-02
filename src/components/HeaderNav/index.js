@@ -68,7 +68,7 @@ class HeaderNav extends Component {
   //   console.log(this.props.collapsed)
   // }
   render() { 
-    console.log(this.props)
+    // console.log(this.props)
     let {adminName,adminUrl} = this.props
     return ( 
       <Fragment>
