@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import style from './index.module.less';
 import {Card ,Table,Button,Modal,notification,Spin,Popconfirm,message} from 'antd';
 import {PlusOutlined ,CloseCircleOutlined } from '@ant-design/icons';
-import api from '../../../api/admin';
+import api from '@api/admin';
 
 
 // let columns =;

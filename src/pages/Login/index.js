@@ -5,16 +5,15 @@ import { UserOutlined } from '@ant-design/icons';
 import style from './index.module.less'
 class Login extends Component {
   onFinish=async (e)=>{
-   console.log('完成',e)
   //  获取用户填写的数据 发起ajax请求 
   let {user,pass} = e 
   let result = await api.login({user,pass})
-  console.log(result)
-  console.log(result.code)
   if(result.err === 0 ){
     console.log("登录ok");
             message.success('登录成功，3s后跳转首页',3,()=>{
               this.props.history.replace('/admin')
+              // 把用户名记下来
+              console.log(this.props)
             })
    
   }else{
