@@ -50,9 +50,8 @@ class Administrator extends Component {
   ]
 }
 del=async (_id)=>{
-console.log('删除',_id);
-let result=await api.delAdmin(_id);
-console.log(result)
+// console.log('删除',_id);
+await api.delAdmin(_id);
 this.freshlList()
 
 
@@ -78,13 +77,13 @@ this.freshlList()
     
   }
   handleCancel=()=>{
-    console.log('点击取消');
+    // console.log('点击取消');
     this.setState({visible:false})
   }
   freshlList=async()=>{
     this.setState({spinning:true})
     let result=await api.getAllAdmins()
-    console.log(result)
+    // console.log(result)
    
     this.setState({dataSource:result.list,spinning:false})
   }
